@@ -1,0 +1,75 @@
+---
+title: "R and Rstudio FAQ / Common Errors"
+author: "Miranda Rintoul"
+output:
+  pdf_document: default
+  html_document: default
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[R and Rstudio Download](https://posit.co/download/rstudio-desktop/)
+
+[Video Instructions (Mac)](https://www.youtube.com/watch?v=n8kP7c_QbLA)
+
+[Video Instructions (Windows)](https://www.youtube.com/watch?v=YrEe2TLr3MI)
+
+Make sure you install R first (step 1), then Rstudio.  The site above should detect which operating system you are using and provide you with the correct version of Rstudio.
+
+## R and Rstudio installation
+
+*I am a mac user and got the error message "R x.x.x for macOS (ARM64) can’t be installed on this computer."*
+
+- The package R-x.x.x-arm64.pkg from [this page](https://cran.r-project.org/bin/macosx/) cannot be installed on your Mac if it uses an Intel processor (use "About this Mac" to check what processor you are using).  If you have an Intel processor, you need to download the R-x.x.x-x86_64.pkg instead.
+
+*The R or Rstudio installation failed for an unkown reason.*
+
+- One reason this could happen is if you are using an older version of your operating system, and you need to use an older version of Rstudio.  You can see your operating system under "About this Mac" for mac or "Settings -> About" on windows.  Google the version of Rstudio that fits your operating system, and find the installer on [this page](https://docs.posit.co/previous-versions/rstudio/).  Click "Installers" under the appropriate version then scroll down to find the installer for your operating system.
+
+- Rstudio will fail to install if you have not already installed R itself.  Make sure you have R downloaded and installed first.
+
+*Nothing else is working.*
+
+- If it feels impossible to get R and Rstudio downloaded and working on your computer, another option is to use the [Posit Cloud](https://posit.cloud/).  You will need to create a free account with Posit and you will need an internet connection to use this version of Rstudio.
+
+## Running code
+
+These are tips for using Rstudio as a tool for running R code, not a general resource for debugging R error messages.
+
+*The code editor in the top left pane is missing.*
+
+- Nothing is wrong here! The viewer pane will appear as soon as you open up a file (like an Rmardown) with Rstudio.
+
+*I am getting a weird "Error in exists(...): invalid first argument" message when I try to run any R code.*
+
+- Sometimes if you try to run something as code that is not actually code, R can get a bit messed up.  Go to the top bar, Session -> Restart R and it should be back to normal.
+
+*I don't see any output when I run my code.*
+
+- Not all lines of code will produce an output.  For example, defining a variable with the arrow symbol (e.g. `x <- 5`) will not output anything, just create a variable x with value 5 in your Environment tab.
+
+## Knitting RMarkdown documents
+
+You are not required to write your homework in an .Rmd document, but it is one option for organizing code and written solutions into a single document.  If you use an .Rmd, you will be prompted to install a few extra packages to Rstudio.  When you finish writing your homework, you will need to knit your .Rmd to a .pdf, .doc, or .html file.
+
+*I am trying to knit to a pdf but I am getting an error message like "No Latex installation detected".*
+
+- Try knitting to a .html instead (with the down arrow immediately to the right of the Knit button). This requires fewer packages and is a perfectly acceptable file type for your homework submissions.
+
+*I got an error that ends with "Execution halted".*
+
+- This happens when there is a problem with your R code itself. The error message should contain a line number for the offending R code. Before knitting your document, try to run each code chunk inndividually, in order (with the green "play" buttons).  Make sure none of the chunks are causing errors.
+
+*Each chunk runs fine, but when I try to knit the entire document, I get an "object not found" error.*
+
+- When you run individual lines of R code, R can "see" the objects in your Environment tab in the upper right.  But when you knit an entire document, the process that generates the document does not reference the Environment tab.  Any named variable that you use needs to be defined in the Rmarkdown itself, inside of a code chunk.
+
+*I have "Unicode character _____ not set up for use with LaTeX".* 
+
+- This can sometimes happen if you copy-pasted a "fancy" character (such as a greek letter) from another source into the Rmarkdown editor.  The compiler does not know how to deal with special characters and gives an error. Stick with typing characters that can be produced with just your keyboard. If you want to render special characters, let me know and I can give you some references.  This is not required.
+
+
+
